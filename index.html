@@ -1,59 +1,19 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profefonso | Blog</title>
-    <meta name="description" content="Bienvenido a mi blog personal. Comparto ideas sobre tecnología, desarrollo y más.">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <nav>
-            <a href="index.html" class="logo">Profe<span>fonso</span></a>
-            <div class="nav-links">
-                <a href="index.html">Inicio</a>
-                <a href="#">Acerca de</a>
-                <a href="#">Contacto</a>
-            </div>
-        </nav>
-    </header>
+---
+layout: default
+---
 
-    <main>
-        <section class="hero">
-            <h1>Explorando el futuro del <span>desarrollo</span>.</h1>
-            <p>Un espacio donde comparto mis reflexiones, tutoriales y experimentos en el mundo de la tecnología.</p>
-        </section>
+<section class="hero" style="background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.7), #0f172a), url('{{ '/assets/images/hero.png' | relative_url }}');">
+    <h1>Explorando el futuro del <span>desarrollo</span>.</h1>
+    <p>Un espacio donde comparto mis reflexiones, tutoriales y experimentos en el mundo de la tecnología.</p>
+</section>
 
-        <section class="blog-grid" id="blog-grid">
-            <!-- Blog posts will be listed here -->
-            <article class="post-card" onclick="location.href='posts/mi-primer-post.html'">
-                <span class="post-date">11 May, 2026</span>
-                <h2>Bienvenidos a mi nuevo blog</h2>
-                <p>Hoy doy inicio a este nuevo proyecto donde estaré compartiendo mis conocimientos y experiencias...</p>
-                <a href="posts/mi-primer-post.html" class="read-more">Leer más →</a>
-            </article>
-
-            <article class="post-card">
-                <span class="post-date">05 May, 2026</span>
-                <h2>El futuro de la IA en el desarrollo</h2>
-                <p>¿Cómo las nuevas herramientas de IA están transformando la forma en que escribimos código?</p>
-                <a href="#" class="read-more">Leer más →</a>
-            </article>
-
-            <article class="post-card">
-                <span class="post-date">28 Apr, 2026</span>
-                <h2>Optimizando tu flujo de trabajo</h2>
-                <p>Consejos y trucos para ser más productivo como desarrollador en el día a día.</p>
-                <a href="#" class="read-more">Leer más →</a>
-            </article>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Profefonso. Hecho con ❤️ y un toque de café.</p>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+<section class="blog-grid" id="blog-grid">
+    {% for post in site.posts %}
+    <article class="post-card" onclick="location.href='{{ post.url | relative_url }}'">
+        <span class="post-date">{{ post.date | date: "%d %b, %Y" }}</span>
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+        <a href="{{ post.url | relative_url }}" class="read-more">Leer más →</a>
+    </article>
+    {% endfor %}
+</section>

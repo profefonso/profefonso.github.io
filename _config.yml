@@ -1,13 +1,14 @@
-title: Profefonso Blog
+title: Mariana's Blog
 email: alfonso@example.com
 description: >-
-  Explorando el futuro del desarrollo. Un espacio para compartir reflexiones, 
-  tutoriales y experimentos tecnológicos.
+  Exploring the future of development. A space for sharing reflections, 
+  tutorials, and technological experiments.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://profefonso.github.io"
 
 # Build settings
 theme: null # We are using a custom design
+lang: en
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
